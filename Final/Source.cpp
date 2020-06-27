@@ -107,7 +107,7 @@ void FiletoDslk(Dslk& l, char* file)
 	f.close();
 }
 
-//************Chuyển Dslk sang Binary*******
+//************Chuyển Dslk sang Binary*********
 
 void DslktoFile(Dslk& l, char* file)
 {
