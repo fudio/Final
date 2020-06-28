@@ -4,6 +4,7 @@
 #include <string.h>
 #include <iomanip>
 #include <ctime>
+#pragma warning(disable : 4996)
 
 #define file_khosach  "khosach.bin"
 #define file_sachmuon "sachmuon.bin"

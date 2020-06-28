@@ -512,7 +512,6 @@ void suathongtinnguoimuon()
 	SachMuon dssachmuon[200];
 	f.open(file_sachmuon, std::ios::in | std::ios::binary);
 	int i = 0;
-	f.open(file_khosach, std::ios::in);
 	while (f.read(reinterpret_cast<char*>(&dssachmuon[i]), sizeof(SachMuon)))
 	{
 		i++;
@@ -531,42 +530,44 @@ void suathongtinnguoimuon()
 	std::cin >> s;
 	std::cout << "NHAP TEN NGUOI MUON: " << " ";
 	cin.ignore();
-	gets_s(tennguoimuon);
+	cin >> tennguoimuon;
 	std::cout << "NHAP MA SACH: " << " ";
-	fflush(stdin);
-	gets_s(masach);
+	cin.ignore();
+	cin >> masach;
+	cin.ignore();
 	for (int j = 0; j < i; j++)
 		if (strcmp(dssachmuon[j].tennguoimuon, tennguoimuon) == 0 && strcmp(dssachmuon[j].masach, masach) == 0)
+		{
 			switch (s)
 			{
 			case 1:
-				std::cout << "NHAP TEN NGUOI MUON MOI: " << " ";
-				fflush(stdin);
+				std::cout << "NHAP TEN NGUOI MUON MOI: ";
 				gets_s(dssachmuon[j].tennguoimuon);
 				std::cout << "SUA THANH CONG";
 				break;
 			case 2:
-				std::cout << "NHAP MA SACH MOI: " << " ";
-				fflush(stdin);
+				std::cout << "NHAP MA SACH MOI: ";
 				gets_s(dssachmuon[j].masach);
 				std::cout << "SUA THANH CONG";
 				break;
 			case 3:
-				std::cout << "NHAP THOI HAN MOI: " << " ";
+				std::cout << "NHAP THOI HAN MOI: ";
 				std::cin >> dssachmuon[j].thoihan;
 				std::cout << "SUA THANH CONG";
 				break;
 			case 4:
-				std::cout << "NHAP SO LUONG MOI: " << " ";
+				std::cout << "NHAP SO LUONG MOI: ";
 				std::cin >> dssachmuon[j].soluong;
 				std::cout << "SUA THANH CONG";
 				break;
 			case 5:
-				std::cout << "NHAP GIA TIEN MOI: " << " ";
+				std::cout << "NHAP GIA TIEN MOI: ";
 				std::cin >> dssachmuon[j].giatien;
-				std::cout << "SUA THANH CONG: ";
+				std::cout << "SUA THANH CONG";
 				break;
 			}
+			break;
+		}
 	f.open(file_sachmuon, std::ios::out | std::ios::binary);
 	for (int j = 0; j < i; j++)
 		f.write(reinterpret_cast<char*>(&dssachmuon[j]), sizeof(SachMuon));
@@ -581,17 +582,17 @@ void nhapsachtra()
 	int n;
 	fstream f;
 	fstream f1;
-	std::cout << "NHAP SO LUONG SACH CAN TRA: " << " ";
+	std::cout << "NHAP SO LUONG SACH CAN TRA: ";
 	std::cin >> n;
 	f.open(file_sachtra, std::ios::out | std::ios::app | std::ios::binary);
 	time_t now = time(0);    //hàm lấy thời gian hệ thống  Source: https://topdev.vn/blog/date-va-time-trong-c/
 	tm* ltm = localtime(&now);
 	for (int i = 0; i < n; i++)
 	{
-		std::cout << "NHAP TEN NGUOI TRA: " << " ";
+		std::cout << "NHAP TEN NGUOI TRA: ";
 		fflush(stdin);
 		gets_s(sachtra[i].tennguoimuon);
-		std::cout << "NHAP MA SACH: " << " ";
+		std::cout << "NHAP MA SACH: ";
 		std::cin.ignore();
 		gets_s(sachtra[i].masach);
 		sachtra[i].ngay = ltm->tm_mday;
