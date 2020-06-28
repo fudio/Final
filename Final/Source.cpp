@@ -530,7 +530,7 @@ void suathongtinnguoimuon()
 	std::cout << "CHON CHUC NANG: ";
 	std::cin >> s;
 	std::cout << "NHAP TEN NGUOI MUON: " << " ";
-	fflush(stdin);
+	cin.ignore();
 	gets_s(tennguoimuon);
 	std::cout << "NHAP MA SACH: " << " ";
 	fflush(stdin);
