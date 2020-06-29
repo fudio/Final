@@ -118,7 +118,7 @@ void DslktoFile(Dslk& l, char* file)
 		while (f.write(reinterpret_cast<char*>(&(n->Sach)), sizeof(Thuvien)))
 			n = n->pNext;
 	f.close();
-	Node* i = l.head;
+	Node* i;
 	//Giải phóng vùng nhớ dslk
 	while (!l.head)
 	{
@@ -594,10 +594,12 @@ void nhapsachtra()
 	{
 		std::cout << "NHAP TEN NGUOI TRA: ";
 		std::cin.ignore();
-		gets_s(sachtra[i].tennguoimuon);
+		//gets_s(sachtra[i].tennguoimuon);
+		std::cin >> sachtra[i].tennguoimuon;
 		std::cout << "NHAP MA SACH: ";
 		std::cin.ignore();
-		gets_s(sachtra[i].masach);
+		//gets_s(sachtra[i].masach);
+		std::cin >> sachtra[i].masach;
 		//sachtra[i].ngay = ltm->tm_mday;
 		//sachtra[i].thang = 1 + ltm->tm_mon;
 		//sachtra[i].nam = 1900 + ltm->tm_year;
@@ -620,11 +622,8 @@ void nhapsachtra()
 		j--;
 	}
 	f.open(file_sachmuon, std::ios::out | std::ios::binary);
-	j = 0;
-	while (f.write(reinterpret_cast<char*>(&dssachmuon[j]), sizeof(SachMuon)))
-	{
-		j++;
-	}
+	for (int i = 0; i < j; i++)
+		f.write(reinterpret_cast<char*>(&dssachmuon[i]), sizeof(SachMuon));
 	f.close();
 }
 
