@@ -588,8 +588,8 @@ void nhapsachtra()
 	fstream f;
 	std::cout << "NHAP SO LUONG SACH CAN TRA: ";
 	std::cin >> n;
-	time_t now = time(0);    //hàm lấy thời gian hệ thống  Source: https://topdev.vn/blog/date-va-time-trong-c/
-	tm* ltm = localtime(&now);
+	//time_t now = time(0);    //hàm lấy thời gian hệ thống  Source: https://topdev.vn/blog/date-va-time-trong-c/
+	//tm* ltm = localtime(&now);
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "NHAP TEN NGUOI TRA: ";
@@ -598,9 +598,9 @@ void nhapsachtra()
 		std::cout << "NHAP MA SACH: ";
 		std::cin.ignore();
 		gets_s(sachtra[i].masach);
-		sachtra[i].ngay = ltm->tm_mday;
-		sachtra[i].thang = 1 + ltm->tm_mon;
-		sachtra[i].nam = 1900 + ltm->tm_year;
+		//sachtra[i].ngay = ltm->tm_mday;
+		//sachtra[i].thang = 1 + ltm->tm_mon;
+		//sachtra[i].nam = 1900 + ltm->tm_year;
 		//int songaymuon = thisIsMagic(dssachtra[i].nam, dssachtra[i].thang, dssachtra[i].ngay) - thisIsMagic(dssachmuon.nam, dssachmuon.thang, dssachmuon.ngay);    //số ngày mượn 
 	}
 	SachMuon dssachmuon[200];
