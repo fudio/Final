@@ -72,6 +72,12 @@ int main()
 						case 2:
 							suathongtinnguoimuon();
 							goto start;
+						case 3:
+							xuatdanhsachmuon();
+							goto start;
+
+						case 4:
+							goto start;
 						case 0:
 							exit(0);
 						}
@@ -176,6 +182,9 @@ int main()
 							suathongtinnguoimuon();
 							goto start1;
 						case 3:
+							xuatdanhsachmuon();
+							goto start1;
+						case 4:
 							goto start1;
 						case 0:
 							exit(0);

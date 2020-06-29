@@ -165,16 +165,18 @@ void menu_muonsach()
 	std::cout << "******MENU MUON SACH******\n";
 	std::cout << "1.MUON SACH\n";
 	std::cout << "2.SUA PHIEU MUON\n";
-	std::cout << "3.VE MENU CHINH\n";
+	std::cout << "3.XUAT DANH SACH MUON\n";
+	std::cout << "4.VE MENU CHINH\n";
 	std::cout << "0.THOAT";
 
 }
 
 void menu_sachtra()
 {
+	system("CLS");
 	std::cout << "1.NHAP NGUOI TRA SACH\n";
 	std::cout << "2.VE MENU CHINH\n";
-	std::cout << "0.THOAT";
+	std::cout << "0.THOAT\n";
 }
 
 void nhapsach()
@@ -182,7 +184,7 @@ void nhapsach()
 	Thuvien sachnhap;
 	int n;
 	fstream f;
-	std::cout << "NHAP SO LUONG SACH CAN NHAP:" << " ";
+	std::cout << "NHAP SO LUONG SACH CAN NHAP: ";
 	std::cin >> n;
 	f.open(file_khosach, std::ios::out | std::ios::app | ios::binary);
 	for (int i = 0; i < n; i++)
@@ -504,6 +506,9 @@ void xuatdanhsachmuon()
 		std::cout << "|" << setw(4) << sachmuon.nam << " | " << setw(3) << sachmuon.thoihan << " ngay |   " << setw(4) << sachmuon.soluong << "    |   " << setw(4) << sachmuon.giatien << "   |\n";
 		std::cout << "+-----+-------------------------------+---------+------------+----------+-----------+---------+" << std::endl;
 	}
+	std::cout << "NHAn PHIM BAT KY DE TIEP TUC!";
+	std::cin.get();
+	std::cin.get();
 }
 
 void suathongtinnguoimuon()
@@ -581,16 +586,14 @@ void nhapsachtra()
 	Trasach sachtra[30];
 	int n;
 	fstream f;
-	fstream f1;
 	std::cout << "NHAP SO LUONG SACH CAN TRA: ";
 	std::cin >> n;
-	f.open(file_sachtra, std::ios::out | std::ios::app | std::ios::binary);
 	time_t now = time(0);    //hàm lấy thời gian hệ thống  Source: https://topdev.vn/blog/date-va-time-trong-c/
 	tm* ltm = localtime(&now);
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "NHAP TEN NGUOI TRA: ";
-		fflush(stdin);
+		std::cin.ignore();
 		gets_s(sachtra[i].tennguoimuon);
 		std::cout << "NHAP MA SACH: ";
 		std::cin.ignore();
@@ -599,17 +602,15 @@ void nhapsachtra()
 		sachtra[i].thang = 1 + ltm->tm_mon;
 		sachtra[i].nam = 1900 + ltm->tm_year;
 		//int songaymuon = thisIsMagic(dssachtra[i].nam, dssachtra[i].thang, dssachtra[i].ngay) - thisIsMagic(dssachmuon.nam, dssachmuon.thang, dssachmuon.ngay);    //số ngày mượn 
-		f.write(reinterpret_cast<char*>(&sachtra[i]), sizeof(Trasach));
 	}
-	f.close();
 	SachMuon dssachmuon[200];
-	f1.open(file_sachmuon, std::ios::in | std::ios::binary);
+	f.open(file_sachmuon, std::ios::in | std::ios::binary);
 	int j = 0;
-	while (f1.read(reinterpret_cast<char*>(&dssachmuon[j]), sizeof(SachMuon)))
+	while (f.read(reinterpret_cast<char*>(&dssachmuon[j]), sizeof(SachMuon)))
 	{
 		j++;
 	}
-	f1.close();
+	f.close();
 	for (int i = 0; i < n; i++)
 	{
 		for (int k = 0; k < j; k++)
@@ -618,13 +619,13 @@ void nhapsachtra()
 					dssachmuon[l] = dssachmuon[l + 1];
 		j--;
 	}
-	f1.open(file_sachmuon, std::ios::out | std::ios::binary);
+	f.open(file_sachmuon, std::ios::out | std::ios::binary);
 	j = 0;
-	while (f1.write(reinterpret_cast<char*>(&dssachmuon[j]), sizeof(SachMuon)))
+	while (f.write(reinterpret_cast<char*>(&dssachmuon[j]), sizeof(SachMuon)))
 	{
 		j++;
 	}
-	f1.close();
+	f.close();
 }
 
 

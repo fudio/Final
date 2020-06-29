@@ -8,7 +8,6 @@
 
 #define file_khosach  "khosach.bin"
 #define file_sachmuon "sachmuon.bin"
-#define file_sachtra  "sachtra.txt"
 
 using namespace std;
 
@@ -97,6 +96,7 @@ void suathongtinsach(Dslk l);
 void nhapsachmuon();
 void xuatdanhsachmuon();
 void suathongtinnguoimuon();
+void xuatdanhsachmuon();
 //****************************TRẢ SÁCH***********************//
 void nhapsachtra();
 //************Thống kê***************
