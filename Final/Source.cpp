@@ -138,7 +138,6 @@ void menu_chinh()
 	std::cout << "1.QUAN LY KHO\n";
 	std::cout << "2.MUON SACH\n";
 	std::cout << "3.TRA SACH\n";
-	std::cout << "4.THONG KE\n";
 	std::cout << "0.THOAT\n";
 	std::cout << "CHON CHUC NANG: ";
 
@@ -355,7 +354,7 @@ void suathongtinsach()
 			switch (s)
 			{
 			case 1:
-				std::cout << "NHAP MA SACH MOI: " << " ";
+				std::cout << "NHAP MA SACH MOI: ";
 				fflush(stdin);
 				gets_s(dssach[j].masach);
 				break;
@@ -371,20 +370,20 @@ void suathongtinsach()
 				std::cout << "SUA THANH CONG";
 				break;
 			case 3:
-				std::cout << "NHAP THE LOAI MOI: " << " ";
+				std::cout << "NHAP THE LOAI MOI: ";
 				fflush(stdin);
 				gets_s(dssach[j].theloai);
 
 				std::cout << "SUA THANH CONG";
 				break;
 			case 4:
-				std::cout << "NHAP NHA XUAT BAN MOI: " << " ";
+				std::cout << "NHAP NHA XUAT BAN MOI: ";
 				fflush(stdin);
 				gets_s(dssach[j].nxb);
 				std::cout << "SUA THANH CONG";
 				break;
 			case 5:
-				std::cout << "NHAP SO LUONG MOI: " << " ";
+				std::cout << "NHAP SO LUONG MOI: ";
 				std::cin >> dssach[j].sl;
 				std::cout << "SUA THANH CONG";
 				break;

@@ -16,7 +16,7 @@ struct Thuvien
 	char masach[6];
 	char tensach[30];
 	char theloai[15];
-	char nxb[15];
+	char nxb[30];
 	int sl;
 };
 
