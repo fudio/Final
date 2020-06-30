@@ -119,8 +119,7 @@ void DslktoFile(Dslk& l, char* file)
 			n = n->pNext;
 	f.close();
 	Node* i;
-	//Giải phóng vùng nhớ dslk
-	while (!l.head)
+	while (!l.head)	//Giải phóng vùng nhớ dslk
 	{
 		i = l.head;
 		l.head = i->pNext;
@@ -235,7 +234,7 @@ void nhapsach(Dslk& l)
 		gets_s(sachnhap.nxb);
 		f << sachnhap.nxb << std::endl;
 		std::cout << "NHAP SO LUONG: ";
-		std::cin >> sachnhap.sl;//nè sửa lại đi
+		std::cin >> sachnhap.sl;
 		ThemNode(l, sachnhap); //thêm các ô nhớ sachnhap vào DSLK
 	}
 }
@@ -501,8 +500,9 @@ void xuatdanhsachmuon()
 	std::cout << "+-----+-------------------------------+---------+------------+----------+-----------+----------+" << std::endl;
 	while (f.read(reinterpret_cast<char*>(&sachmuon), sizeof(SachMuon)))
 	{
-		std::cout << "| " << setw(3) << j++ << " | " << setw(29) << sachmuon.tennguoimuon << " |  " << setw(5) << sachmuon.masach << "  | " << setw(2) << sachmuon.ngay << "/" << setw(2) << sachmuon.thang;
-		std::cout << "|" << setw(4) << sachmuon.nam << " | " << setw(3) << sachmuon.thoihan << " ngay |   " << setw(4) << sachmuon.soluong << "    |   " << setw(4) << sachmuon.giatien << "   |\n";
+		std::cout << "| " << setw(3) << j++ << " | " << setw(29) << sachmuon.tennguoimuon << " |  " << setw(5) << sachmuon.masach << "  | ";
+		std::cout << setw(2) << sachmuon.ngay << "/" << setw(2) << sachmuon.thang << "|" << setw(4) << sachmuon.nam << " | " << setw(3);
+		std::cout << sachmuon.thoihan << " ngay |   " << setw(4) << sachmuon.soluong << "    |   " << setw(4) << sachmuon.giatien << "   |\n";
 		std::cout << "+-----+-------------------------------+---------+------------+----------+-----------+---------+" << std::endl;
 	}
 	std::cout << "NHAn PHIM BAT KY DE TIEP TUC!";
@@ -587,22 +587,14 @@ void nhapsachtra()
 	fstream f;
 	std::cout << "NHAP SO LUONG SACH CAN TRA: ";
 	std::cin >> n;
-	//time_t now = time(0);    //hàm lấy thời gian hệ thống  Source: https://topdev.vn/blog/date-va-time-trong-c/
-	//tm* ltm = localtime(&now);
 	for (int i = 0; i < n; i++)
 	{
 		std::cout << "NHAP TEN NGUOI TRA: ";
 		std::cin.ignore();
-		//gets_s(sachtra[i].tennguoimuon);
 		std::cin >> sachtra[i].tennguoimuon;
 		std::cout << "NHAP MA SACH: ";
 		std::cin.ignore();
-		//gets_s(sachtra[i].masach);
 		std::cin >> sachtra[i].masach;
-		//sachtra[i].ngay = ltm->tm_mday;
-		//sachtra[i].thang = 1 + ltm->tm_mon;
-		//sachtra[i].nam = 1900 + ltm->tm_year;
-		//int songaymuon = thisIsMagic(dssachtra[i].nam, dssachtra[i].thang, dssachtra[i].ngay) - thisIsMagic(dssachmuon.nam, dssachmuon.thang, dssachmuon.ngay);    //số ngày mượn 
 	}
 	SachMuon dssachmuon[200];
 	f.open(file_sachmuon, std::ios::in | std::ios::binary);

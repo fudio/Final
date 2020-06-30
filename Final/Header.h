@@ -32,13 +32,6 @@ struct SachMuon
 	int soluong;
 };
 
-struct Sachquathoihan//sách quá thời hạn
-{
-	char tennguoimuon[30];
-	char  masach[6];
-	int giatientangthem;
-};
-
 struct Trasach
 {
 	char tennguoimuon[30];
@@ -96,7 +89,6 @@ void suathongtinsach(Dslk l);
 void nhapsachmuon();
 void xuatdanhsachmuon();
 void suathongtinnguoimuon();
-void xuatdanhsachmuon();
 //****************************TRẢ SÁCH***********************//
 void nhapsachtra();
 //************Thống kê***************
