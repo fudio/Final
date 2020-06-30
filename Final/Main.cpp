@@ -185,6 +185,7 @@ int main()
 						case 4:
 							goto start1;
 						case 0:
+							DslktoFile(list, file);
 							exit(0);
 						}
 					}
@@ -205,6 +206,7 @@ int main()
 						case 2:
 							goto start1;
 						case 0:
+							DslktoFile(list, file);
 							exit(0);
 						}
 					}
