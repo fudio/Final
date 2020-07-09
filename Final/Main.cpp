@@ -5,107 +5,106 @@ int main()
 	int flag;
 	while (1)
 	{
-		std::cout << "CHON CACH THAO TAC VOI DU LIEU:\n";
-		std::cout << "1.MANG\n";
-		std::cout << "2.DANH SACH LIEN KET\n";
-		std::cout << "0.THOAT\n";
-		std::cout << "NHAP LUA CHON CUA BAN: ";
-		int chon;
-		std::cin >> chon;
-		if (chon == 1)
-		{
-		start:menu_chinh();
-			cin >> flag;
-			if (flag == 0)
-				exit(0);
-			else
-				switch (flag)
-				{
-				case 1:
-				{
-					int s;
-					menu_qlkho();
-					while (1)
-					{
-						cout << "CHON CHUC NANG: ";
-						cin >> s;
-						if (s == 0)
-							exit(0);
-						else
-							switch (s)
-							{
-							case 1:
-								nhapsach();
-								goto start;
-							case 2:
-								xoasach();
-								goto start;
-							case 3:
-								suathongtinsach();
-								goto start;
-							case 4:
-								xuatsosach();
-								goto start;
-							case 5:
-								goto start;
-							case 0:
-								exit(0);
-							}
-					}
-				}
-				case 2:
-				{
-					int s;
-					menu_muonsach();
-					while (1)
-					{
-						cout << endl;
-						cout << "CHON CHUC NANG: ";
-						cin >> s;
-						if (s == 0)
-							exit(0);
-						else switch (s)
-						{
-						case 1:
-							nhapsachmuon();
-							goto start;
-						case 2:
-							suathongtinnguoimuon();
-							goto start;
-						case 3:
-							xuatdanhsachmuon();
-							goto start;
-
-						case 4:
-							goto start;
-						case 0:
-							exit(0);
-						}
-					}
-				}
-				case 3:
-				{
-					int s;
-					menu_sachtra();
-					while (1)
-					{
-						cout << "CHON CHUC NANG: ";
-						cin >> s;
-						switch (s)
-						{
-						case 1:
-							nhapsachtra();
-						case 2:
-							goto start;
-						case 0:
-							exit(0);
-						}
-					}
-				}
-				}
-		}
-		else if (chon == 2)/***********************************************************************************************************************************************************************************************/
-		{
+		//std::cout << "CHON CACH THAO TAC VOI DU LIEU:\n";
+		//std::cout << "1.MANG\n";
+		//std::cout << "2.DANH SACH LIEN KET\n";
+		//std::cout << "0.THOAT\n";
+		//std::cout << "NHAP LUA CHON CUA BAN: ";
+		//int chon;
+		//std::cin >> chon;
+		//if (chon == 1)
+		//{
+		//start:menu_chinh();
+		//	cin >> flag;
+		//	if (flag == 0)
+		//		exit(0);
+		//	else
+		//		switch (flag)
+		//		{
+		//		case 1:
+		//		{
+		//			int s;
+		//			menu_qlkho();
+		//			while (1)
+		//			{
+		//				cout << "CHON CHUC NANG: ";
+		//				cin >> s;
+		//				if (s == 0)
+		//					exit(0);
+		//				else
+		//					switch (s)
+		//					{
+		//					case 1:
+		//						nhapsach();
+		//						goto start;
+		//					case 2:
+		//						xoasach();
+		//						goto start;
+		//					case 3:
+		//						suathongtinsach();
+		//						goto start;
+		//					case 4:
+		//						xuatsosach();
+		//						goto start;
+		//					case 5:
+		//						goto start;
+		//					case 0:
+		//						exit(0);
+		//					}
+		//			}
+		//		}
+		//		case 2:
+		//		{
+		//			int s;
+		//			menu_muonsach();
+		//			while (1)
+		//			{
+		//				cout << endl;
+		//				cout << "CHON CHUC NANG: ";
+		//				cin >> s;
+		//				if (s == 0)
+		//					exit(0);
+		//				else switch (s)
+		//				{
+		//				case 1:
+		//					nhapsachmuon();
+		//					goto start;
+		//				case 2:
+		//					suathongtinnguoimuon();
+		//					goto start;
+		//				case 3:
+		//					xuatdanhsachmuon();
+		//					goto start;
+		//				case 4:
+		//					goto start;
+		//				case 0:
+		//					exit(0);
+		//				}
+		//			}
+		//		}
+		//		case 3:
+		//		{
+		//			int s;
+		//			menu_sachtra();
+		//			while (1)
+		//			{
+		//				cout << "CHON CHUC NANG: ";
+		//				cin >> s;
+		//				switch (s)
+		//				{
+		//				case 1:
+		//					nhapsachtra();
+		//				case 2:
+		//					goto start;
+		//				case 0:
+		//					exit(0);
+		//				}
+		//			}
+		//		}
+		//		}
+		//}
+		//else if (chon == 2)/***********************************************************************************************************************************************************************************************/
+		//{
 			//****Hàm khỏi tạo DSLK
 			char file[] = ".\\khosach.bin";    //địa chỉ file
 			Dslk list;
@@ -212,8 +211,8 @@ int main()
 					}
 				}
 				}
-		}
-		else exit(0);
+		//}
+		//else exit(0);
 
 	}
 }
